@@ -1,4 +1,4 @@
-(function () {
+ (function () {
 
   var input = document.querySelector('#iris-input'),
       submit = document.querySelector('#iris-submit'),
@@ -16,7 +16,10 @@
         "42. Duh.",
         "What do you call a swindler going down some stairs? <br>Condescending. Ha!"];
 
-    console.log(input);
+      let firstString = validInputs[0];
+      let lastString = validInputs[4];
+
+
 
   // Add event listeners to text input and submit button below
    submit.addEventListener('click',processInput);
@@ -48,7 +51,16 @@
 function processInput() {
   let currentInput = input.value;
   input.value = '';
-  alert(currentInput);
+
+console.log(validInputs.indexOf(currentInput));
+
+if (validInputs.indexOf(currentInput) == -1) {
+  message.innerHTML = "sorry, I don't understand you";
+}else{
+ message.innerHTML = responses [validInputs.indexOf(currentInput)];
+}
+
+alert(currentInput);
  }
 
 })();
